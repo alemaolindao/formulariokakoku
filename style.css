@@ -69,7 +69,25 @@ h1 {
     background: var(--cor-destaque);
     color: #000;
     font-size: 2.5rem;
-    font-weight: 500;
+    font-weight: 500;raPalavras = document.querySelector("#botao-palavrachave");
+
+botaoMostraPalavras.addEventListener("click", mostraPalavrasChave);
+
+function mostraPalavrasChave() {
+  const texto = document.querySelector("#entrada-de-texto").value;
+
+  const campoResultado = document.querySelector("#resultado-palavrachave");
+
+  const palavrasChave = processaTexto(texto);
+
+  campoResultado.textContent = palavrasChave.join(", ");
+}
+
+function processaTexto(texto) {
+  let palavras = texto.split(/\P{L}+/u);
+
+  return palavras;
+}
     line-height: normal;
 }
 
